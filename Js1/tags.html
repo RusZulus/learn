@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>second task</title>
+	</head>
+	<body>
+		<script>
+			let img = document.createElement('img'); //создаем элемент "картинка"
+			img.id = '0';
+			img.src = "./Kotik.jpg";
+			img.style.height = '200px';
+			img.style.width = '400px';
+			document.body.append(img); //вставить картинку на страницу
+			document.write('<br>');
+			img = document.createElement('img');
+			img.id = '1';
+			img.src = "./sobachka.jpg";
+			img.style.height = '300px';
+			img.style.width = '550px';
+			document.body.append(img);
+			document.write('<br>');
+			img = document.createElement('img');
+			img.id = '2';
+			img.src = "./Krolik.png";
+			img.style.height = '400px';
+			img.style.width = '400px';
+			document.body.append(img);
+			document.write('<br>');
+
+			document.write('Количество картинок: ' + document.body.getElementsByTagName('img').length);
+			document.write('<br>');
+
+			document.write('Ширина первой картинки: ' + document.body.getElementsByTagName('img')[0].width + 'px');
+			document.write('<br>');
+
+			let maxWidth = document.body.getElementsByTagName('img')[0].width;
+			let sumHeight = document.body.getElementsByTagName('img')[0].height;
+
+			for (let i = 1; i < document.body.getElementsByTagName('img').length; i++){
+				if (document.body.getElementsByTagName('img').item(i).width > maxWidth){
+					maxWidth = document.body.getElementsByTagName('img').item(i).width;
+
+				}
+				sumHeight += document.body.getElementsByTagName('img').item(i).height;
+			}
+
+			document.write('Максимальная ширина картинки: ' + maxWidth + 'px');
+			document.write('<br>');
+
+			document.write('Сумма высот всех картинок: ' + sumHeight + 'px');
+			document.write('<br>');
+
+
+			let countOnPage = 0; //на той же странице
+			let countOnAnother = 0; // на другие сайты	
+			document.write('Список анкоров:<br>');
+
+			for (let i = 0; i < 3; i++){
+				let anchor = document.createElement('a'); //создаем элемент "анкор"
+				anchor.href = '#' + document.getElementsByTagName('img').item(i).id; //создаем ссылку на текущую картинку
+				anchor.innerText = `${i+1} картинка`; //текст ссылки
+				document.body.append(anchor); //вставить на страницу ссылку
+				document.write('<br>');
+				countOnPage++;
+			}	
+
+			document.write('Список ссылок:<br>');
+			for (let i = 0; i < 5; i++){
+				let anchor = document.createElement('a'); //создаем элемент "ссылка"
+				anchor.href = `https://vk.com/ruszulus${i+1}`;
+				anchor.innerText = `Название ${i+1}-й ссылки`;
+				document.body.append(anchor);
+				document.write('<br>');
+				countOnAnother++;
+			}
+			document.write('<br>');
+
+		
+
+			document.write('<br>');
+			document.write('Количество анкоров: ' + countOnPage + '<br>');
+			document.write('Количество ссылок: ' + countOnAnother + '<br>');
+			document.write('<br>');
+			document.write('Содержимое первого анкора:<br>' + document.body.getElementsByTagName('a')[0].innerHTML);
+			
+		</script>
+	</body>
+</html>
