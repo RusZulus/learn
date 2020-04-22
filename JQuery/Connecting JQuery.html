@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8"> 
+  <script src="jquery-3.4.1.js"></script> <!-- подключаем jquery -->
+  <script> 
+  $(document).ready(function(){
+	//после загрузки страницы применяется функция 
+	$("h1").css("fontSize","50px");
+	$("p").css("color","red");
+	$("p").css("fontSize","50px");
+	$(".hello").css("fontStyle","italic");
+	$(".hello").css("fontSize","50px");
+	$("a").css("fontWeight","bold");
+	$("a").css("fontSize","50px");
+	$(".container1").css("backgroundColor","yellow");
+	$('form *').prop('disabled', true);
+	
+	
+	//2
+	$("a").prepend("↗️"); //одбавляет стрелочку в начало
+	$("a").attr("target","_blank"); //открывает ссылку в новом окне
+	$("a").each(function() {
+		//меняет http на https
+		if ($(this).attr("href").startsWith("http:")==true) 
+		{
+		$(this).attr("href","https" + $(this).attr("href").slice(4));
+		}
+	}); 
+	$("#btn").css("float","right");
+	$("#btn").click(function() {
+		//по нажатию на кнопку удаляется первый символ
+		$("a").each(function () { 
+				$(this).text(function (index, text) {    
+						return text.substring(1, text.length);  
+				});
+			});
+		$("a").attr("target","_self"); //старница открывается в том же окне
+		});
+	
+	//3
+	//сбрасывает прозрачность до нуля
+	$("#btn1").click(function() {
+		$("#1").fadeOut("slow");
+	 })
+	//снижает прозрачность до заданного значения
+	$("#btn2").click(function() {
+		$("#2").fadeTo("slow","0.1");
+	 })
+	//уменшьает высоту до 0 (исчезает вертикально)
+	$("#btn3").click(function() {
+		$("#3").slideUp("slow");
+	})
+	//скрывает видимый и показывает скрытый
+	$("#btn4").click(function() {
+		$("#4").slideToggle("slow");
+	})
+	//скрывает сужаясь
+	$("#btn5").click(function() {
+		$("#5").hide("slow");
+	})
+	//ajax запрос
+	$("#btn6").css("margin-left","600px");
+	$("#btn6").click(function() {
+		$(".inxaoc").load("https://inxaoc.github.io/example/ajax-1.html");
+	})
+	});
+  </script>
+</head>
+<body>
+    <div class="header">
+	  <div class="container">
+		<input type="button" value="Отмена" id="btn">
+		<h1>JQuery</h1>
+      </div>
+	</div>
+	<div class="container1">
+        <h2 class ="hello">Здравствуйте!</h2>
+        <p>RED</p>
+        <a href ="http://vk.com/microslavik">VK</a>
+		<br>
+	</div>
+	<br>
+<form>
+	<table>
+		<caption>Введите данные банковской карты</caption>
+			<tr>
+			<td><input type="text"></td>
+			</tr>
+			<tr>
+			<td><input type="password"></td>
+			</tr>
+			<tr>
+			<th><input type="checkbox"></th>
+			</tr>
+	</table>
+	<input type="submit" value="Сюда лут">	
+</form>
+    <br>
+	<table border="5" width="100%">
+   <tr>
+    <th>Текст</th>
+    <th>Эффект/анимация</th>
+   </tr>
+   <tr>
+    <td id="1">Пример</td>
+    <td><input type="button" value="fadeOut" id="btn1"></td>
+  </tr>
+  <tr>
+    <td id="2">Еще один</td>
+    <td><input type="button" value="fadeTo" id="btn2"></td>
+  </tr>
+  <tr>
+    <td id="3">Третий</td>
+    <td><input type="button" value="slideUp" id="btn3"></td>
+  </tr>
+  <tr>
+    <td id="4">Долго еще?</td>
+    <td><input type="button" value="SlideToggle" id="btn4"></td>
+  </tr>
+  <tr>
+    <td id="5">Последний!</td>
+    <td><input type="button" value="Hide" id="btn5"></td>
+  </tr>
+  </table>
+  <br>
+  <div class="footer">
+  <input type="button" value="Загружаем" id="btn6">
+  <div class="inxaoc">
+  </div>
+  </div>
+</body>
+</html>
