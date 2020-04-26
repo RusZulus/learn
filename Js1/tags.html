@@ -34,8 +34,8 @@
 			document.write('Ширина первой картинки: ' + document.body.getElementsByTagName('img')[0].width + 'px');
 			document.write('<br>');
 
-			let maxWidth = document.body.getElementsByTagName('img')[0].width;
-			let sumHeight = document.body.getElementsByTagName('img')[0].height;
+			let maxWidth = document.body.getElementsByTagName('img')[0].width; //максимальная ширина
+			let sumHeight = document.body.getElementsByTagName('img')[0].height; //сумма высот
 
 			for (let i = 1; i < document.body.getElementsByTagName('img').length; i++){
 				if (document.body.getElementsByTagName('img').item(i).width > maxWidth){

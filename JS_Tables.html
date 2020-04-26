@@ -86,9 +86,8 @@
 </head>
 <body>
 	<script>
-		const optionsStyleBorder = ['none', 'dotted', 'dashed', 'solid', 'double', 'groove', 'ridge']; //название стилей рамок
-		const optionsColors = ['black', 'red', 'dodgerblue', 'yellow', 'lime', 'mediumseagreen', 'deeppink', 'aqua', 'lightsalmon', 'violet', 'tan'];
-
+		const optionsStyleBorder = ['none', 'dotted', 'dashed', 'solid', 'double', 'groove', 'ridge']; //массив с названиями стилей рамок
+		const optionsColors = ['black', 'red', 'dodgerblue', 'yellow', 'lime', 'mediumseagreen', 'deeppink', 'aqua', 'lightsalmon', 'violet', 'tan'];//массив с цветами 
 		let formForCreationTable = document.createElement('form'); //форма для создания таблицы
 		formForCreationTable.id = 'createForm';
 		let randomStyleBorderTable = Math.floor(Math.random() * (optionsStyleBorder.length - 1) + 1); //выбор случайного значения стиля рамок 
@@ -143,7 +142,7 @@
 		let divFuncDelRow = document.createElement('div');
 		let divFuncDelTable = document.createElement('div');
 		let divFuncMagic = document.createElement('div');
-		
+		//создаем первую функцию
 		let formFuncChange = document.createElement('form');
 		let labelFuncChange = document.createElement('h4');
 		labelFuncChange.innerText = 'Изменить размер шрифта и стиль таблицы';
